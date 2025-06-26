@@ -14,6 +14,10 @@ oVoGPT
 
 |
 
+.. image:: https://github.com/sinusphi/ovogpt/blob/main/ovogpt/static/screen1.png?raw=true
+
+|
+
 Beschreibung
 ------------
 
