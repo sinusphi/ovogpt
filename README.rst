@@ -22,7 +22,8 @@ Beschreibung
 ------------
 
 oVoGPT (Our Very Own GPT) ist eine leichtgewichtige Demo-Anwendung, mit der sich ein Sprachmodell, ähnlich wie ChatGPT, direkt auf dem eigenen Computer oder Server betreiben lässt. Eine Internetverbindung ist nicht erforderlich, sämtliche Daten werden lokal verarbeitet und verlassen das System zu keinem Zeitpunkt.
-oVoGPT möchte sowohl Technik-Interessierten als auch Führungskräften aller Branchen, wie moderne KI-Lösungen autark und datenschutzfreundlich umgesetzt werden können.
+
+oVoGPT möchte sowohl Technik-Interessierten als auch Führungskräften aller Branchen demonstrieren, wie moderne KI-Lösungen autark und datenschutzfreundlich umgesetzt werden können.
 
 |
 
