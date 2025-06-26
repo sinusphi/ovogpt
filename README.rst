@@ -47,7 +47,7 @@ First launch a console. Create and activate a virtual environment:
 
 |
 
-Clone this repository and install the `requirements <https://github.com/sinusphi/ovogpt/requirements.txt>`__.
+Clone this repository and install the `requirements <https://github.com/sinusphi/ovogpt/blob/main/requirements.txt>`__.
 
 |
 
