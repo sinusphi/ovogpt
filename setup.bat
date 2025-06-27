@@ -12,10 +12,10 @@ REM install requirements
 python -m pip install -U pip
 pip install -r requirements.txt
 
-REM start the server
-python ovogpt\ovo.py
-
 REM deactivate venv
 deactivate
+
+REM 
+echo Installation complete! Run start_server.bat to open the chat page. 
 
 pause
