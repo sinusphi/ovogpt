@@ -27,8 +27,8 @@ oder Server betreiben lässt. Eine Internetverbindung ist nicht erforderlich,
 sämtliche Daten werden lokal verarbeitet und verlassen das System zu keinem 
 Zeitpunkt.
 
-oVoGPT möchte sowohl Technik-Interessierten als auch Führungskräften aller 
-Branchen demonstrieren, wie moderne KI-Lösungen autark und datenschutzfreundlich 
+Diese Demo wurde entworfen um sowohl Technik-Interessierten als auch Führungskräften 
+aller Branchen demonstrieren, wie moderne KI-Lösungen autark und datenschutzfreundlich 
 umgesetzt werden können.
 
 |
@@ -41,23 +41,24 @@ run a language model, similar to ChatGPT, directly on your own computer or
 server. No internet connection is required; all data is processed locally 
 and never leaves your system.
 
-oVoGPT is designed to show both tech enthusiasts and decision-makers across 
+This demo is designed to show both tech enthusiasts and decision-makers across 
 all industries how modern AI solutions can be implemented autonomously and 
 with full data privacy.
 
 |
 
-Run oVo
--------
+Getting Started
+---------------
 
-First download Ollama from `here <https://ollama.com/download>`__ and install 
-it. Then clone this repository and 
-run `setup.bat <https://github.com/sinusphi/ovogpt/blob/main/setup.bat>`__. 
+First download and install Ollama from `here <https://ollama.com/download>`__. 
+Then clone this repository and 
+run `setup.bat <https://github.com/sinusphi/ovogpt/blob/main/setup.bat>`__ to 
+create the virtual environment and install dependencies. 
 
-To start the server 
-run `start_server.bat <https://github.com/sinusphi/ovogpt/blob/main/start_server.bat>`__. 
-If your browser doesn't open, go to `127.0.0.1:5000` in your browser to access 
-the chat page.
+Start the server 
+with `start_server.bat <https://github.com/sinusphi/ovogpt/blob/main/start_server.bat>`__. 
+If your browser doesn't open automatically, go to `127.0.0.1:5000` in your 
+browser to access the chat page.
 
 Ouput: 
 
