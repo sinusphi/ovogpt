@@ -1,6 +1,13 @@
 import requests
-from flask import Flask, request, jsonify, render_template_string
-
+import threading
+import webbrowser
+import time
+from flask import (
+    render_template_string,
+    Flask,
+    jsonify,
+    request,
+)
 from pages import chat_page
 
 
@@ -47,5 +54,14 @@ def chat():
     answer = call_ollama(question)  # generate a response
     return jsonify({"antwort": answer})  # return answer as json
 
+
+def open_browser():
+    # wait for server ready
+    time.sleep(1)
+    webbrowser.open('http://127.0.0.1:5000')
+
+
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)  # launch the server
+    threading.Thread(target=open_browser).start()
+    app.run(host='127.0.0.1', port=5000)  # launch the server
