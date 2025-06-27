@@ -1,7 +1,7 @@
 oVoGPT
 ******
 
-**Das eigene, lokale und sichere Sprachmodell.**
+**A simple demo for running language models locally and securely.**
 
 .. image:: https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=FFE873
     :target: https://www.python.org/downloads
@@ -9,7 +9,7 @@ oVoGPT
 .. image:: https://img.shields.io/badge/code%20style-black-000000
     :target: https://github.com/psf/black
 
-.. image:: https://img.shields.io/badge/donations-paypal-pink
+.. image:: https://img.shields.io/badge/donations-paypal-orange?logo=paypal&logoColor=darkblue
     :target: https://paypal.me/yserestou
 
 |
@@ -31,6 +31,7 @@ Description
 -----------
 
 oVoGPT (`our very own GPT`) is a lightweight demo application that lets you run a language model, similar to ChatGPT, directly on your own computer or server. No internet connection is required; all data is processed locally and never leaves your system.
+
 oVoGPT is designed to show both tech enthusiasts and decision-makers across all industries how modern AI solutions can be implemented autonomously and with full data privacy.
 
 |
@@ -38,40 +39,21 @@ oVoGPT is designed to show both tech enthusiasts and decision-makers across all 
 Run oVo
 -------
 
-First launch a console. Create and activate a virtual environment:
+Clone this repository and run `setup.bat <https://github.com/sinusphi/ovogpt/blob/main/setup.bat>`__. 
+
+To start the server run `start_server.bat <https://github.com/sinusphi/ovogpt/blob/main/start_server.bat>`__. 
+If your browser doesn't open, go to `127.0.0.1:5000` in your browser to access the chat page.
+
+Ouput: 
 
 .. code-block:: bash
 
-    $ python -m venv <your_venv>
-    $ source <your_venv>/Scripts/activate
-
-|
-
-Clone this repository and install the `requirements <https://github.com/sinusphi/ovogpt/blob/main/requirements.txt>`__.
-
-|
-
-Start the server:
-
-.. code-block:: bash
-
-    $ python ovogpt/ovogpt/ovo.py
     Device set to use cpu
     * Serving Flask app 'ovo'
     * Debug mode: off
-    WARNING: 
-    This is a development server. 
-    Do not use it in a production deployment. 
-    Use a production WSGI server instead.
-    * Running on all addresses (0.0.0.0)
     * Running on http://127.0.0.1:5000
-    * Running on http://___.___.___.__:5000
     Press CTRL+C to quit
     127.0.0.1 - - [26/Jun/2025 13:52:43] "GET / HTTP/1.1" 200 -
-
-|
-
-Then open `127.0.0.1:5000` in your browser to access the chat page.
 
 |
 
