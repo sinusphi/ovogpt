@@ -28,7 +28,7 @@ sämtliche Daten werden lokal verarbeitet und verlassen das System zu keinem
 Zeitpunkt.
 
 Diese Demo wurde entworfen um sowohl Technik-Interessierten als auch Führungskräften 
-aller Branchen demonstrieren, wie moderne KI-Lösungen autark und datenschutzfreundlich 
+aller Branchen zu demonstrieren, wie moderne KI-Lösungen autark und datenschutzfreundlich 
 umgesetzt werden können.
 
 |
