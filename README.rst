@@ -21,28 +21,43 @@ oVoGPT
 Beschreibung
 ------------
 
-oVoGPT (Our Very Own GPT) ist eine leichtgewichtige Demo-Anwendung, mit der sich ein Sprachmodell, ähnlich wie ChatGPT, direkt auf dem eigenen Computer oder Server betreiben lässt. Eine Internetverbindung ist nicht erforderlich, sämtliche Daten werden lokal verarbeitet und verlassen das System zu keinem Zeitpunkt.
+oVoGPT (Our Very Own GPT) ist eine leichtgewichtige Demo-Anwendung, mit der 
+sich ein Sprachmodell, ähnlich wie ChatGPT, direkt auf dem eigenen Computer 
+oder Server betreiben lässt. Eine Internetverbindung ist nicht erforderlich, 
+sämtliche Daten werden lokal verarbeitet und verlassen das System zu keinem 
+Zeitpunkt.
 
-oVoGPT möchte sowohl Technik-Interessierten als auch Führungskräften aller Branchen demonstrieren, wie moderne KI-Lösungen autark und datenschutzfreundlich umgesetzt werden können.
+oVoGPT möchte sowohl Technik-Interessierten als auch Führungskräften aller 
+Branchen demonstrieren, wie moderne KI-Lösungen autark und datenschutzfreundlich 
+umgesetzt werden können.
 
 |
 
 Description
 -----------
 
-oVoGPT (`our very own GPT`) is a lightweight demo application that lets you run a language model, similar to ChatGPT, directly on your own computer or server. No internet connection is required; all data is processed locally and never leaves your system.
+oVoGPT (`our very own GPT`) is a lightweight demo application that lets you 
+run a language model, similar to ChatGPT, directly on your own computer or 
+server. No internet connection is required; all data is processed locally 
+and never leaves your system.
 
-oVoGPT is designed to show both tech enthusiasts and decision-makers across all industries how modern AI solutions can be implemented autonomously and with full data privacy.
+oVoGPT is designed to show both tech enthusiasts and decision-makers across 
+all industries how modern AI solutions can be implemented autonomously and 
+with full data privacy.
 
 |
 
 Run oVo
 -------
 
-Clone this repository and run `setup.bat <https://github.com/sinusphi/ovogpt/blob/main/setup.bat>`__. 
+First download Ollama from `here <https://ollama.com/download>`__ and install 
+it. Then clone this repository and 
+run `setup.bat <https://github.com/sinusphi/ovogpt/blob/main/setup.bat>`__. 
 
-To start the server run `start_server.bat <https://github.com/sinusphi/ovogpt/blob/main/start_server.bat>`__. 
-If your browser doesn't open, go to `127.0.0.1:5000` in your browser to access the chat page.
+To start the server 
+run `start_server.bat <https://github.com/sinusphi/ovogpt/blob/main/start_server.bat>`__. 
+If your browser doesn't open, go to `127.0.0.1:5000` in your browser to access 
+the chat page.
 
 Ouput: 
 
