@@ -9,7 +9,7 @@ oVoGPT
 .. image:: https://img.shields.io/badge/code%20style-black-000000
     :target: https://github.com/psf/black
 
-.. image:: https://img.shields.io/badge/donations-paypal-orange?logo=paypal&logoColor=darkblue
+.. image:: https://img.shields.io/badge/donate-paypal-orange?logo=paypal&logoColor=darkblue
     :target: https://paypal.me/yserestou
 
 |
@@ -21,11 +21,11 @@ oVoGPT
 Beschreibung
 ------------
 
-oVoGPT (Our Very Own GPT) ist eine leichtgewichtige Demo-Anwendung, mit der 
-sich ein Sprachmodell, ähnlich wie ChatGPT, direkt auf dem eigenen Computer 
-oder Server betreiben lässt. Eine Internetverbindung ist nicht erforderlich, 
-sämtliche Daten werden lokal verarbeitet und verlassen das System zu keinem 
-Zeitpunkt.
+oVoGPT (Our Very Own GPT) ist eine leichtgewichtige Demo-Anwendung, mit der sich ein 
+Sprachmodell (`Mistral 7B <https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3>`__), 
+ähnlich wie ChatGPT, direkt auf dem eigenen Computer oder Server betreiben lässt. Eine 
+Internetverbindung ist nicht erforderlich, sämtliche Daten werden lokal verarbeitet und 
+verlassen das System zu keinem Zeitpunkt.
 
 Diese Demo wurde entworfen um sowohl Technik-Interessierten als auch Führungskräften 
 aller Branchen zu demonstrieren, wie moderne KI-Lösungen autark und datenschutzfreundlich 
@@ -37,9 +37,9 @@ Description
 -----------
 
 oVoGPT (`our very own GPT`) is a lightweight demo application that lets you 
-run a language model, similar to ChatGPT, directly on your own computer or 
-server. No internet connection is required; all data is processed locally 
-and never leaves your system.
+run a language model (Mistral 7B), similar to ChatGPT, directly on your own 
+computer or server. No internet connection is required; all data is processed 
+locally and never leaves your system.
 
 This demo is designed to show both tech enthusiasts and decision-makers across 
 all industries how modern AI solutions can be implemented autonomously and 
@@ -50,7 +50,15 @@ with full data privacy.
 Getting Started
 ---------------
 
-First download and install Ollama from `here <https://ollama.com/download>`__. 
+We use Mistral from `here <https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3>`__ 
+in this demo. 
+
+Create a read token on Huggingface and put it in 
+`tokens.py <https://github.com/sinusphi/ovogpt/blob/main/ovogpt/tokens.py>`__.
+
+Put the path to your local model in 
+`models.py <https://github.com/sinusphi/ovogpt/blob/main/train/models.py>`__.
+
 Then clone this repository and 
 run `setup.bat <https://github.com/sinusphi/ovogpt/blob/main/setup.bat>`__ to 
 create the virtual environment and install dependencies. 
