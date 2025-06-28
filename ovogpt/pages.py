@@ -1,3 +1,4 @@
+"""HTML Pages"""
 chat_page = """
 <!DOCTYPE html>
 <html lang="de">
