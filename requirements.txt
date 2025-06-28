@@ -1,4 +1,26 @@
-requests
-transformers
-torch
-flask
+wheel
+torch>=2.2.0
+# tested on rtx 5080 with torch 2.8.0.dev20250627 | cuda 12.8
+# uncomment the link below (pls notify me if ever the link expires)
+# and comment torch>=2.2.0 on line 2
+#https://download.pytorch.org/whl/nightly/cu128/torch-2.8.0.dev20250627%2Bcu128-cp312-cp312-win_amd64.whl
+
+# triton 3.0.0 (required for training with axolotl)
+https://huggingface.co/madbuda/triton-windows-builds/resolve/main/triton-3.0.0-cp312-cp312-win_amd64.whl
+
+transformers>=4.39.3
+peft>=0.10.0
+bitsandbytes>=0.43.0
+datasets>=2.19.0
+trl>=0.8.6
+accelerate>=0.27.2
+wandb>=0.16.6
+scipy>=1.11.0
+flask>=3.0.0
+jinja2>=3.1.2
+gunicorn>=21.2.0      # for production
+python-dotenv>=1.0.1  # for setting environment vars
+
+# optional
+uvicorn>=0.30.0
+streamlit>=1.33.0
