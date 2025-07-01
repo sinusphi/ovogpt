@@ -1,7 +1,10 @@
-"""oVoGPT"""
+"""
+oVoGPT
+"""
 import threading
 import webbrowser
 import time
+
 from flask import (
     render_template_string,
     Flask,
@@ -9,39 +12,81 @@ from flask import (
     request,
 )
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from peft import PeftModel
 import torch
+
 from pages import chat_page
 from tokens import account_token  # put your token in tokens.py
-#from secret_tokens import my_secret_token
-#token = account_token if len(account_token) > 0 else my_secret_token
-token = account_token
+
 
 
 HTML = chat_page
 
 app = Flask(__name__)
 
+base_model_path = ""     # path to the base model
+lora_model_path = ""     # path to the lora custom model
+lora_output_path = ""    # lora output path
+cache_dir = ""           # huggingface save directory
 
-# initialize model
-MODEL_NAME = "mistralai/Mistral-7B-Instruct-v0.3"
+
+# initialize tokenizer
 tokenizer = AutoTokenizer.from_pretrained(
-    MODEL_NAME,
-    token=token,
-    cache_dir="G:/.huggingface_cache"
+    base_model_path,
+    token=account_token,
+    cache_dir=cache_dir
 )
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_NAME,
+
+# add padding token if missing
+if tokenizer.pad_token is None:
+    tokenizer.pad_token = tokenizer.eos_token
+
+# initialize base model
+base_model = AutoModelForCausalLM.from_pretrained(
+    base_model_path,
     torch_dtype=torch.float16,
-    token=token,
-    cache_dir="G:/.huggingface_cache"
-).cuda()
+    token=account_token,
+    cache_dir=cache_dir,
+    device_map="auto"  # auto device mapping
+)
+
+# load lora adapter on top of base model
+model = PeftModel.from_pretrained(
+    base_model,  # pass the loaded model
+    lora_model_path
+)
 
 
 def call_mistral(prompt):
-    inputs = tokenizer(prompt, return_tensors="pt").to("cuda")
-    outputs = model.generate(**inputs, max_new_tokens=128)
-    reply = tokenizer.decode(outputs[0], skip_special_tokens=True)
-    return reply
+    try:
+        inputs = tokenizer(
+            prompt,
+            return_tensors="pt",
+            padding=True,
+            truncation=True
+        )
+
+        # move inputs to the same device as model
+        device = next(model.parameters()).device
+        inputs = {k: v.to(device) for k, v in inputs.items()}
+
+        with torch.no_grad():
+            outputs = model.generate(
+                **inputs,
+                max_new_tokens=128,
+                do_sample=True,
+                temperature=0.7,
+                pad_token_id=tokenizer.eos_token_id
+            )
+
+        # decode only the new tokens (exclude the input prompt)
+        new_tokens = outputs[0][len(inputs['input_ids'][0]):]
+        reply = tokenizer.decode(new_tokens, skip_special_tokens=True)
+        return reply.strip()
+
+    except Exception as e:
+        print(f"Error in call_mistral: {e}")
+        return f"Error: {str(e)}"
 
 
 @app.route('/', methods=['GET', 'POST'])
