@@ -1,4 +1,6 @@
-"""Training"""
+"""
+Training
+"""
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
@@ -9,16 +11,17 @@ from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from datasets import load_dataset
 from trl import SFTTrainer
 import torch
-from models import mistral_7b_0
-#from secret_models import secret_mistral_7b_0
-#model = mistral_7b_0 if len(mistral_7b_0) > 0 else secret_mistral_7b_0
-model = mistral_7b_0
+
+from models import mistral_7b_0  # put model path in models.py
+
 
 
 # base model and dataset
-base_model = model
+base_model = mistral_7b_0
 dataset_name = "mlabonne/guanaco-llama2-1k"
 
+# where to save the model
+model_save_path = ""  # put abs path here
 
 # easy going on memory: 4bit-config
 bnb_config = BitsAndBytesConfig(
@@ -28,7 +31,6 @@ bnb_config = BitsAndBytesConfig(
     bnb_4bit_use_double_quant=False
 )
 
-
 # load model and tokenizer
 model = AutoModelForCausalLM.from_pretrained(
     base_model,
@@ -37,9 +39,12 @@ model = AutoModelForCausalLM.from_pretrained(
     trust_remote_code=True,
     torch_dtype=torch.bfloat16
 )
-tokenizer = AutoTokenizer.from_pretrained(base_model, trust_remote_code=True)
-tokenizer.pad_token = tokenizer.eos_token
 
+tokenizer = AutoTokenizer.from_pretrained(
+    base_model,
+    trust_remote_code=True
+)
+tokenizer.pad_token = tokenizer.eos_token
 
 # LoRA-config
 model = prepare_model_for_kbit_training(model)
@@ -52,7 +57,6 @@ peft_config = LoraConfig(
     target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj"]
 )
 model = get_peft_model(model, peft_config)
-
 
 # parameters for training
 training_arguments = TrainingArguments(
@@ -68,10 +72,8 @@ training_arguments = TrainingArguments(
     report_to=None
 )
 
-
 # load dataset
 dataset = load_dataset(dataset_name, split="train")
-
 
 # build trainer and start training
 trainer = SFTTrainer(
@@ -81,6 +83,6 @@ trainer = SFTTrainer(
     args=training_arguments
 )
 
-
+# run training
 trainer.train()
-trainer.model.save_pretrained("./mistral_7b_custom_lora")
+trainer.model.save_pretrained(model_save_path)
